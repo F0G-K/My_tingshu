@@ -21,7 +21,7 @@ import java.util.Map;
  * 全局异常处理类
  */
 @Slf4j
-@ControllerAdvice
+@ControllerAdvice //RestControllerAdvice = @Controller+ResponseBody
 public class GlobalExceptionHandler {
 
     @ExceptionHandler(Exception.class)

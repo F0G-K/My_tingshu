@@ -1,9 +1,12 @@
 package com.atguigu.tingshu.album.service.impl;
 
 import com.alibaba.fastjson.JSONObject;
+import com.atguigu.tingshu.album.mapper.BaseAttributeMapper;
 import com.atguigu.tingshu.album.mapper.BaseCategory1Mapper;
 import com.atguigu.tingshu.album.mapper.BaseCategoryViewMapper;
 import com.atguigu.tingshu.album.service.BaseCategoryService;
+import com.atguigu.tingshu.model.album.BaseAttribute;
+import com.atguigu.tingshu.model.album.BaseAttributeValue;
 import com.atguigu.tingshu.model.album.BaseCategory1;
 import com.atguigu.tingshu.model.album.BaseCategoryView;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -19,6 +22,8 @@ import java.util.stream.Collectors;
 @Service
 public class BaseCategoryServiceImpl extends ServiceImpl<BaseCategory1Mapper, BaseCategory1> implements BaseCategoryService {
 
+    @Autowired
+    private BaseAttributeMapper baseAttributeMapper;
     @Autowired
     private BaseCategoryViewMapper baseCategoryViewMapper;
 
@@ -172,5 +177,14 @@ public class BaseCategoryServiceImpl extends ServiceImpl<BaseCategory1Mapper, Ba
         }
 //				返回结果
         return returnList;
+    }
+    /*
+    * 根据一级分类ID查询标签列表(包含标签取值)
+    * */
+
+    @Override
+    public List<BaseAttribute> findAttributeByCategory1Id(Long category1Id) {
+        //调用标签持久层的mapper执行自定义的sql执行查询
+        return baseAttributeMapper.findAttributeByCategory1Id(category1Id);
     }
 }
