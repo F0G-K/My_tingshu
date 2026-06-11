@@ -12,7 +12,9 @@ public class AuthContextHolder {
     }
 
     public static Long getUserId() {
-        return userId.get();
+        //return userId.get();
+        //TODO 未完成登录认证,此处返回值1,应该是动态
+        return 1L;
     }
 
     public static void removeUserId() {

@@ -9,7 +9,6 @@ release.properties
 dependency-reduced-pom.xml
 buildNumber.properties
 .mvn/timing.properties
-.MYSELFREADME.md
 docker-compose/mongo_data/
 docker-compose/mysql_data/
 docker-compose/redis/data/
@@ -45,3 +44,5 @@ fabric.properties
 
 # MinIO 运行时数据
 docker-compose/minio_data/
+MYSELFAPIKEY.md
+CLAUDE.md
